@@ -1,7 +1,8 @@
 kldtools <- function(x, y, threshold=0.975) {
+
 ## checks
 if(!identical(length(x), length(y))) stop("both vectors must have the same length")
-if(any(length(x) < 3)) stop("length of both vectors must be more than two")
+if(any(length(x) < 2)) stop("length of both vectors must be more than one")
 if(any(!is.finite(x)) || any(!is.finite(y))) stop("both vectors must have olnly finite values")
 if(any(x < 0) || any(y < 0)) stop("both vectors must consist of nonnegative values")
 if(!all.equal(y, as.integer(y)) || !all.equal(y, as.integer(y))) stop("both vectors must consist of whole numbers")
@@ -29,8 +30,9 @@ KLD.s <- mean(c(KLD, sum(b * log(b/a))))
 b[b == 0] <- 1/sum(y)
 
 ## calculate the g(v) vector used for the calculation of variance
-g.v <- - a[1:(na1)]/b[1:(nb1)] + a[na]/b[nb]
-g.V <- c(g.v, g.v)
+g.v1 = log((a[1:(na1)] * b[nb]) / (b[1:(nb1)] * a[na]))
+g.v2 = -a[1:(na1)] / b[1:(nb1)] + (a[na] / b[nb])
+g.V <- c(g.v1, g.v2)
 
 ## calculate the same vector for symmetrized KLD
 g.x <- 1/2*(log(a[1:na1]/b[1:nb1]) - log(a[na]/b[nb])) - 1/2*(b[1:nb1]/a[1:na1] - b[nb]/a[na])

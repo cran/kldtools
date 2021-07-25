@@ -16,12 +16,12 @@ kldtools(x, y, threshold=0.975)
 
 \arguments{
 
-\item{x}{The first vector of frequencies with a length of 3 or more}
+\item{x}{The first vector of frequencies with a length of 2 or more}
 
-\item{y}{The second vector of frequencies with a length of 3 or more}
+\item{y}{The second vector of frequencies with a length of 2 or more}
 
-\item{threshold}{Threshold for declaring statistical significance, the
-default is 0.975 (5\%)}
+\item{threshold}{The threshold for declaring statistical significance,
+the default is 0.975 (5\%)}
 
 }
 
@@ -41,14 +41,25 @@ the field (for more detail, see Zhang 2017, Section 5.3):
 
 sd^2 = g(t(v))*sum(v)*g(v)
 
-Note that if there are only two elements in probability distributions, an
-infinite bias emerges (Zhang & Grabchak 2014), which makes the estimation
-less reliable. Therefore, the function is limited to x = 3.
+However, our function uses a corrected formula of the vector g(v) in  the
+above-given formula, the inconsistency in which has been identified by
+comparing the results obtained from the application of this formula  and
+its simplified version for k = 2 (Zhang 2017: 187).
+
+A deeper enquiry into this problem has led to detecting the formatting
+error in formula (5.94) of the book (Zhang 2017: 185): it is missing the
+elements for the p distribution. We would like to thank Dr. Jialin Zhang
+for verifying the correct formula of the vector in the calculation of the
+variance  of the KLD plug-in estimator.
+
+Also, note that if there are only two elements in probability
+distributions, an infinite bias emerges (Zhang & Grabchak 2014), which
+makes the  estimation less reliable.
 
 The measure of symmetrized KLD (S) is calculated with the following
 formula:
 
-S = S(p, q) = 1/2*(KLD(p||q) + KLD(q||p).
+S = S(p, q) = 1/2*(KLD(p||q) + KLD(q||p)
 
 Although similar to Jensen-Shannon Divergence (JSD), this measure is
 different in that it is not a smoothed version of divergence.
@@ -67,15 +78,17 @@ The application areas for these three estimators might be different. By
 way of suggestion, the KLD estimator is appropriate for a study of
 differences between distributions in systems (samples), whose design
 criteria differ. On the other hand, symmetrized KLD may be more suitable
-for the systems (samples) with a more similar design. In addition, the
-differences between KLD and symmetrized KLD can inform researchers on a
-degree of symmetry between the systems (samples): the larger the 
-difference between these measures, the greater the asymmetry between
-their distributions. Finally, Turing's perspective estimator is believed
-to yield more precise results and is appropriate for the data containing
-zeros, which are handled with the augmentation added to the formula of
-standard deviation (i.e. to the vector g(v) in the above-mentioned
-formula of sd).
+for the systems (samples) with a more similar design.
+
+In addition, the differences between KLD and symmetrized KLD can inform
+researchers on a degree of symmetry between the systems (samples): the
+larger the  difference between these measures, the greater the asymmetry
+between their distributions.
+
+Finally, Turing's perspective estimator is believed to yield more precise
+results and is appropriate for the data containing zeros, which are
+handled with the augmentation added to the formula of standard deviation
+(i.e. to the vector g(v) in the above-mentioned formula of sd).
 
 }
 
@@ -91,11 +104,12 @@ limits of their respective confidence intervals - "*CI".
 
 \references{
 
-Zhang Zh., Grabchak M. 2014. Nonparametric estimation of Kullback-Leibler
-divergence. Neural Computation. 26: 2570-2593.
+Zhang, Zh. & Grabchak, M. (2014). Nonparametric estimation of
+Kullback-Leibler divergence. Neural computation 26 (11), pp. 2570-2593.
+DOI: 10.1162/NECO_a_00646
 
-Zhang, Zh. 2017. Statistical Implications of Turing's Formula. Newark:
-John Wiley & Sons, Inc.
+Zhang, Zh. (2017). Statistical Implications of Turing's Formula. Newark:
+John Wiley & Sons, Incorporated.
 
 }
 
