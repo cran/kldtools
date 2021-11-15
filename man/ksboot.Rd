@@ -42,8 +42,8 @@ is built on the observed frequencies (see Abadie 2002 for an example).
 \value{
 
 The list with the following components: "ksboot.pvalue" for the bootstrap
-p-value of the Kolmogorov-Smirnov test, calculated for the hypothesis
-that the probability densities of two compared  distributions are the
+p-value of the Kolmogorov-Smirnov test, calculated for the null hypothesis
+that the probability densities of two compared distributions are the
 same; "nboots" for the number of the completed bootstraps.
 
 }

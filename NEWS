@@ -1,3 +1,7 @@
+kldtools 1.2:
+ some corrections in ksboot() code and help file;
+ kldtools() upgraded
+
 kldtools 1.1:
  formulas corrected
 

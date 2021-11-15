@@ -48,8 +48,8 @@ its simplified version for k = 2 (Zhang 2017: 187).
 
 A deeper enquiry into this problem has led to detecting the formatting
 error in formula (5.94) of the book (Zhang 2017: 185): it is missing the
-elements for the p distribution. We would like to thank Dr. Jialin Zhang
-for verifying the correct formula of the vector in the calculation of the
+elements for the p distribution. We would like to thank Dr. Jialin Zhang for
+verifying the correct formula of the vector in the calculation of the
 variance  of the KLD plug-in estimator.
 
 Also, note that if there are only two elements in probability
@@ -86,9 +86,10 @@ larger the  difference between these measures, the greater the asymmetry
 between their distributions.
 
 Finally, Turing's perspective estimator is believed to yield more precise
-results and is appropriate for the data containing zeros, which are
-handled with the augmentation added to the formula of standard deviation
-(i.e. to the vector g(v) in the above-mentioned formula of sd).
+results and is appropriate for the data containing zeros (i.e. only in
+the q distribution), which are handled with the augmentation added to the
+formula of standard deviation (i.e. to the vector g(v) in the
+above-mentioned formula of sd).
 
 }
 
